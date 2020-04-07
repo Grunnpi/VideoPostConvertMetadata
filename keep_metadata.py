@@ -20,7 +20,7 @@ LEVELS = {'debug': logging.DEBUG,
           'critical': logging.CRITICAL}
 
 FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
-LOG_FILENAME = 'D:\\Documents\[Mes Images]\\[A trier]\\Handbrake_video_convertie\\keep_metadata.log'
+LOG_FILENAME = 'C:\\Documents\\[Mes Images]\\[A trier]\\Handbrake_video_convertie\\keep_metadata.log'
 level_name = str(args.loglevel)
 level = LEVELS.get(level_name, logging.NOTSET)
 logging.basicConfig(filename=LOG_FILENAME,level=level,format=FORMAT)
@@ -31,8 +31,8 @@ logging.info("source = %s",str(args.src))
 logging.info("destination = %s",str(args.dst))
 
 
-ffmgeg_exe = "d:\\devlog\\ffmpeg\\bin\\ffmpeg.exe"
-metadata_file = "D:\\metadata.txt"
+ffmgeg_exe = "C:\\Dev\\Tools\\ffmpeg\\bin\\ffmpeg.exe"
+metadata_file = "C:\\metadata.txt"
 
 extract_metadata = subprocess.run([ffmgeg_exe, '--i "{0}"'.format(str(args.src)), "-c copy -map_metadata 0 -map_metadata:s:v 0:s:v -map_metadata:s:a 0:s:a -f ffmetadata", metadata_file])
 logging.info("extract return [%s]",extract_metadata)
